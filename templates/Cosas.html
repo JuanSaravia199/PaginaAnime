@@ -1,0 +1,102 @@
+{% load static %}   
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Almacenamiento de animes</title>
+    <link rel="stylesheet" href="{% static 'Cosas_p.css' %}?v=4">
+</head>
+<body> 
+    <header class="encabezado">
+        <h1>Almacenamiento de Nombres Anime</h1>
+        <h2>Pagina simple para guardar animes</h2>
+    </header>
+
+    <div class="almacenamiento-anime">
+
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="columna-izquierda">
+            <div class="controles-animes">
+                <input
+                    type="search"
+                    id="filtro-animes"
+                    placeholder="Buscar anime guardado"
+                    aria-label="Buscar anime guardado"
+                    autocomplete="off"
+                >
+                <select id="orden-animes" aria-label="Ordenar o filtrar animes guardados">
+                    <option value="reciente">Más reciente</option>
+                    <option value="az">A - Z</option>
+                    <option value="vistos">Vistos</option>
+                    <option value="por-ver">Por ver</option>
+                </select>
+            </div>
+            <ul id="lista-animes"></ul>
+
+        </div>
+
+
+        <!-- COLUMNA CENTRAL -->
+        <div class="columna-central">
+
+            <div class="seccion-ingreso">
+                <div class="campos-anime">
+                    <div class="buscador-anime">
+                        <input type="text" id="nombre-anime" placeholder="Apodo" autocomplete="off" aria-label="Apodo del anime">
+                    </div>
+                    <input type="url" id="link-imagen" placeholder="Imagen" aria-label="Enlace de la imagen">
+                </div>
+                <button id="botonG">Guardar</button>
+            </div>
+            <section class="mensaje-central" aria-label="Nombres de anime recomendados">
+                <div id="sugerencias-anime" role="listbox" aria-label="Nombres de anime recomendados"></div>
+            </section>
+
+        </div>
+        <!-- COLUMNA DERECHA -->
+        <div class="columna-derecha">
+
+            <div id="panel-info"> 
+
+                <h3 id="nombre-anime-info"></h3>
+
+                <p class="detalle-info">
+                    <strong>Episodios: </strong> 
+                    <span id="episodios-info"></span>
+                </p> 
+
+                <p class="detalle-info">
+                    <strong>Año: </strong> 
+                    <span id="año-info"></span> 
+                </p> 
+
+                <p class="detalle-info">
+                    <strong>Genero: </strong> 
+                    <span id="genero-info"></span> 
+                </p> 
+
+                <p class="detalle-info">
+                    <strong>Descripcion: </strong> 
+                    <span id="descripcion-info"></span> 
+                    <button id="boton-ver-mas" type="button" aria-expanded="false">Ver más</button>
+                </p> 
+
+                <button id="bts-cerrar" onclick="cerrarPanel()">
+                    Cerrar
+                </button> 
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="{% static 'Cosas_e.js' %}?v=4"></script> 
+
+</body>
+</html>
